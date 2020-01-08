@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".views.main.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Bulbs (I)" />
+
+        <com.hughandrewarch.bulbbucket.components.CounterView
+            android:id="@+id/bulb_counter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            custom:min="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unique Colours (J)" />
+
+        <com.hughandrewarch.bulbbucket.components.CounterView
+            android:id="@+id/colour_counter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            custom:min="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Bulbs of each Colour (K)" />
+
+        <com.hughandrewarch.bulbbucket.components.CounterView
+            android:id="@+id/number_of_counter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            custom:min="0" />
+
+        <TextView
+            android:id="@+id/select_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bulbs to Select (M)" />
+
+        <com.hughandrewarch.bulbbucket.components.CounterView
+            android:id="@+id/select_counter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            custom:min="0" />
+
+        <Button
+            android:id="@+id/selected_colours_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="50dp"
+            android:text="Select Colours" />
+
+        <TextView
+            android:id="@+id/select_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/select_repeat_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeating (N)" />
+
+        <com.hughandrewarch.bulbbucket.components.CounterView
+            android:id="@+id/repeat_counter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            custom:min="1" />
+
+        <Button
+            android:id="@+id/repeat_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="50dp"
+            android:text="Select Colours Repeating" />
+
+        <TextView
+            android:id="@+id/repeat_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</ScrollView>
