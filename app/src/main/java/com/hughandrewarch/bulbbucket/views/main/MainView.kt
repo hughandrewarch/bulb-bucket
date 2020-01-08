@@ -22,5 +22,7 @@ interface MainView {
 
     fun setRepeatCount(count: Int)
     fun getRepeatCount(): Int
+    fun enableRepeat()
+    fun disableRepeat()
     fun setRepeatTextView(text: String)
 }

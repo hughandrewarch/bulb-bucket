@@ -1,5 +1,6 @@
 package com.hughandrewarch.bulbbucket.controllers
 
+import android.os.AsyncTask
 import com.hughandrewarch.bulbbucket.views.main.MainView
 import com.hughandrewarch.bulbbucket.models.domain.Bucket
 import com.hughandrewarch.bulbbucket.models.domain.Lightbulb
@@ -45,12 +46,30 @@ class MainController {
     }
 
     fun repeatPressed() {
-        initBucket()
-        val avg = getAvgUniqueColourCount(view.getSelectCount(), view.getRepeatCount())
 
-        val text = "On average $avg unique colours were selected out of ${view.getBulbCount()} bulbs and ${view.getColourCount()} possible colours over ${view.getRepeatCount()} trials"
+        class someTask() : AsyncTask<Void, Void, String>() {
+            override fun doInBackground(vararg params: Void?): String? {
+                initBucket()
+                val avg = getAvgUniqueColourCount(view.getSelectCount(), view.getRepeatCount())
+                val avgString = String.format("%.2f", avg).toDouble()
 
-        view.setRepeatTextView(text)
+                return "On average $avgString unique colours were selected out of ${view.getBulbCount()} bulbs and ${view.getColourCount()} possible colours over ${view.getRepeatCount()} trials"
+            }
+
+            override fun onPreExecute() {
+                view.setRepeatTextView("Processing")
+                view.disableRepeat()
+            }
+
+            override fun onPostExecute(result: String?) {
+                super.onPostExecute(result)
+                view.enableRepeat()
+                view.setRepeatTextView(result ?: "error running")
+
+            }
+        }
+
+        someTask().execute()
     }
 
     private fun setSelectState() {
@@ -80,5 +99,4 @@ class MainController {
 
         return counts.average()
     }
-
 }

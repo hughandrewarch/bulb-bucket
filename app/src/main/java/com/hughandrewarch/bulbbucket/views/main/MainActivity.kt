@@ -114,6 +114,14 @@ class MainActivity : AppCompatActivity(), MainView {
         repeatCounter.setCount(count)
     }
 
+    override fun enableRepeat() {
+        repeatButton.isEnabled = true
+    }
+
+    override fun disableRepeat() {
+        repeatButton.isEnabled = false
+    }
+
     override fun setRepeatTextView(text: String) {
         repeatTv.text = text
     }
